@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     let books: [Book] = [
         .init(title: "The Alchemist",
@@ -45,6 +45,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        booksTableView.dataSource = self
+        booksTableView.delegate = self
     }
 
     override var representedObject: Any? {
@@ -53,6 +55,40 @@ class ViewController: NSViewController {
         }
     }
 
+    // Implementacion de DataSource
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return books.count
+    }
+    
+    enum BookColumn {
+        static let title: NSUserInterfaceItemIdentifier = .init("title")
+        static let author = NSUserInterfaceItemIdentifier("author")
+//        case publicationDate
+//        case genre
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let book = books[row]
+        
+        if tableColumn == tableView.tableColumns[0] {
+            let titleCell = tableView.makeView(
+                withIdentifier: BookColumn.title,
+                owner: nil
+            ) as! NSTableCellView
+            titleCell.textField?.stringValue = book.title
+            return titleCell
+        } else if tableColumn == tableView.tableColumns[1] {
+            let authorCell = tableView.makeView(
+                withIdentifier: BookColumn.author,
+                owner: nil
+            ) as! NSTableCellView
+            authorCell.textField?.stringValue = book.author.name
+            return authorCell
+        } else {
+            return nil
+        }
+    }
 
 }
 
