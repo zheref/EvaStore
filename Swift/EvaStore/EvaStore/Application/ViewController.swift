@@ -8,6 +8,9 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+    @IBOutlet weak var booksTableView: NSTableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
