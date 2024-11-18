@@ -1,0 +1,7 @@
+.DS_Store
+.xcuserstate
+.idea/
+bin
+obj
+xcuserdata
+*.user

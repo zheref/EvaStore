@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		2B5C73B72CEB6F9E005308A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B5C739D2CEB6F9C005308A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B5C73A42CEB6F9C005308A7;
+			remoteInfo = EvaStore;
+		};
+		2B5C73C12CEB6F9E005308A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B5C739D2CEB6F9C005308A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B5C73A42CEB6F9C005308A7;
+			remoteInfo = EvaStore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B5C73A52CEB6F9C005308A7 /* EvaStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvaStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B5C73B62CEB6F9E005308A7 /* EvaStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EvaStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B5C73C02CEB6F9E005308A7 /* EvaStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EvaStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2B5C73A72CEB6F9C005308A7 /* EvaStore */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EvaStore;
+			sourceTree = "<group>";
+		};
+		2B5C73B92CEB6F9E005308A7 /* EvaStoreTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EvaStoreTests;
+			sourceTree = "<group>";
+		};
+		2B5C73C32CEB6F9E005308A7 /* EvaStoreUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EvaStoreUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B5C73A22CEB6F9C005308A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B5C73B32CEB6F9E005308A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B5C73BD2CEB6F9E005308A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B5C739C2CEB6F9C005308A7 = {
+			isa = PBXGroup;
+			children = (
+				2B5C73A72CEB6F9C005308A7 /* EvaStore */,
+				2B5C73B92CEB6F9E005308A7 /* EvaStoreTests */,
+				2B5C73C32CEB6F9E005308A7 /* EvaStoreUITests */,
+				2B5C73A62CEB6F9C005308A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2B5C73A62CEB6F9C005308A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B5C73A52CEB6F9C005308A7 /* EvaStore.app */,
+				2B5C73B62CEB6F9E005308A7 /* EvaStoreTests.xctest */,
+				2B5C73C02CEB6F9E005308A7 /* EvaStoreUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B5C73A42CEB6F9C005308A7 /* EvaStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B5C73CA2CEB6F9E005308A7 /* Build configuration list for PBXNativeTarget "EvaStore" */;
+			buildPhases = (
+				2B5C73A12CEB6F9C005308A7 /* Sources */,
+				2B5C73A22CEB6F9C005308A7 /* Frameworks */,
+				2B5C73A32CEB6F9C005308A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2B5C73A72CEB6F9C005308A7 /* EvaStore */,
+			);
+			name = EvaStore;
+			packageProductDependencies = (
+			);
+			productName = EvaStore;
+			productReference = 2B5C73A52CEB6F9C005308A7 /* EvaStore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2B5C73B52CEB6F9E005308A7 /* EvaStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B5C73CD2CEB6F9E005308A7 /* Build configuration list for PBXNativeTarget "EvaStoreTests" */;
+			buildPhases = (
+				2B5C73B22CEB6F9E005308A7 /* Sources */,
+				2B5C73B32CEB6F9E005308A7 /* Frameworks */,
+				2B5C73B42CEB6F9E005308A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B5C73B82CEB6F9E005308A7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2B5C73B92CEB6F9E005308A7 /* EvaStoreTests */,
+			);
+			name = EvaStoreTests;
+			packageProductDependencies = (
+			);
+			productName = EvaStoreTests;
+			productReference = 2B5C73B62CEB6F9E005308A7 /* EvaStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2B5C73BF2CEB6F9E005308A7 /* EvaStoreUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B5C73D02CEB6F9E005308A7 /* Build configuration list for PBXNativeTarget "EvaStoreUITests" */;
+			buildPhases = (
+				2B5C73BC2CEB6F9E005308A7 /* Sources */,
+				2B5C73BD2CEB6F9E005308A7 /* Frameworks */,
+				2B5C73BE2CEB6F9E005308A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B5C73C22CEB6F9E005308A7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2B5C73C32CEB6F9E005308A7 /* EvaStoreUITests */,
+			);
+			name = EvaStoreUITests;
+			packageProductDependencies = (
+			);
+			productName = EvaStoreUITests;
+			productReference = 2B5C73C02CEB6F9E005308A7 /* EvaStoreUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B5C739D2CEB6F9C005308A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					2B5C73A42CEB6F9C005308A7 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					2B5C73B52CEB6F9E005308A7 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 2B5C73A42CEB6F9C005308A7;
+					};
+					2B5C73BF2CEB6F9E005308A7 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 2B5C73A42CEB6F9C005308A7;
+					};
+				};
+			};
+			buildConfigurationList = 2B5C73A02CEB6F9C005308A7 /* Build configuration list for PBXProject "EvaStore" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B5C739C2CEB6F9C005308A7;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2B5C73A62CEB6F9C005308A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B5C73A42CEB6F9C005308A7 /* EvaStore */,
+				2B5C73B52CEB6F9E005308A7 /* EvaStoreTests */,
+				2B5C73BF2CEB6F9E005308A7 /* EvaStoreUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B5C73A32CEB6F9C005308A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B5C73B42CEB6F9E005308A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B5C73BE2CEB6F9E005308A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B5C73A12CEB6F9C005308A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B5C73B22CEB6F9E005308A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B5C73BC2CEB6F9E005308A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B5C73B82CEB6F9E005308A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B5C73A42CEB6F9C005308A7 /* EvaStore */;
+			targetProxy = 2B5C73B72CEB6F9E005308A7 /* PBXContainerItemProxy */;
+		};
+		2B5C73C22CEB6F9E005308A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B5C73A42CEB6F9C005308A7 /* EvaStore */;
+			targetProxy = 2B5C73C12CEB6F9E005308A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2B5C73C82CEB6F9E005308A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2B5C73C92CEB6F9E005308A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		2B5C73CB2CEB6F9E005308A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EvaStore/EvaStore.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AQUE4FE98B;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.zheref.EvaStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2B5C73CC2CEB6F9E005308A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EvaStore/EvaStore.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AQUE4FE98B;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.zheref.EvaStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2B5C73CE2CEB6F9E005308A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AQUE4FE98B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.zheref.EvaStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EvaStore.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EvaStore";
+			};
+			name = Debug;
+		};
+		2B5C73CF2CEB6F9E005308A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AQUE4FE98B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.zheref.EvaStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EvaStore.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EvaStore";
+			};
+			name = Release;
+		};
+		2B5C73D12CEB6F9E005308A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AQUE4FE98B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.zheref.EvaStoreUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = EvaStore;
+			};
+			name = Debug;
+		};
+		2B5C73D22CEB6F9E005308A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AQUE4FE98B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.zheref.EvaStoreUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = EvaStore;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B5C73A02CEB6F9C005308A7 /* Build configuration list for PBXProject "EvaStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B5C73C82CEB6F9E005308A7 /* Debug */,
+				2B5C73C92CEB6F9E005308A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B5C73CA2CEB6F9E005308A7 /* Build configuration list for PBXNativeTarget "EvaStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B5C73CB2CEB6F9E005308A7 /* Debug */,
+				2B5C73CC2CEB6F9E005308A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B5C73CD2CEB6F9E005308A7 /* Build configuration list for PBXNativeTarget "EvaStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B5C73CE2CEB6F9E005308A7 /* Debug */,
+				2B5C73CF2CEB6F9E005308A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B5C73D02CEB6F9E005308A7 /* Build configuration list for PBXNativeTarget "EvaStoreUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B5C73D12CEB6F9E005308A7 /* Debug */,
+				2B5C73D22CEB6F9E005308A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B5C739D2CEB6F9C005308A7 /* Project object */;
+}
