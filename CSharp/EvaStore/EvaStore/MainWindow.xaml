@@ -12,7 +12,7 @@
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
         <TextBlock FontSize="50">EvaStore</TextBlock>
         <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-        <controls:DataGrid Width="600" Height="400" Background="Beige">
+        <controls:DataGrid x:Name="booksTable" Width="600" Height="400" Background="Beige">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn 
                     Header="Title" 
