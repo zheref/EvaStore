@@ -25,9 +25,9 @@ namespace EvaStore
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        private Book[] books = [
+        public List<Book> books = [
             new(
-                title: "The Alchemist", 
+                title: "The Alchemist",
                 author: new("Paulo Coelho", "Brazilian", [Genre.Fiction, Genre.Fantasy]),
                 publicationTime:DateTime.Now,
                 genre: Genre.Fiction
