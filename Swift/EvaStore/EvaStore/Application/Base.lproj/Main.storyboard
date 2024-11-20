@@ -709,13 +709,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wX-md-Zja">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wX-md-Zja">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="220"/>
                                 <clipView key="contentView" id="nkt-NR-9nb">
                                     <rect key="frame" x="1" y="1" width="478" height="218"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="Pkv-FH-aVq" viewBased="YES" id="Dhy-Lv-j2p">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Pkv-FH-aVq" viewBased="YES" id="Dhy-Lv-j2p">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="190"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
@@ -741,7 +741,7 @@
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O23-c3-qeW">
                                                                     <rect key="frame" x="3" y="0.0" width="17" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" catalog="system" id="cBG-0N-Gig"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="cBG-0N-Gig"/>
                                                                 </imageView>
                                                                 <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qmr-PY-1Tp">
                                                                     <rect key="frame" x="25" y="0.0" width="89" height="17"/>
@@ -779,7 +779,7 @@
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NS5-un-9TY">
                                                                     <rect key="frame" x="3" y="0.0" width="17" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" catalog="system" id="WUL-NC-Wfg"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="WUL-NC-Wfg"/>
                                                                 </imageView>
                                                                 <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GqE-OH-RNw">
                                                                     <rect key="frame" x="25" y="0.0" width="305" height="17"/>
@@ -823,14 +823,26 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oH2-ve-yE2">
+                                <rect key="frame" x="393" y="227" width="74" height="32"/>
+                                <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CAm-rz-i1P">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="userDidClickDeleteButton:" target="XfG-lQ-9wD" id="zz6-iV-2EZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="oH2-ve-yE2" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="FCO-ER-1qJ"/>
                             <constraint firstItem="f7b-8L-5vC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="11" id="YOk-Sq-n1p"/>
                             <constraint firstAttribute="trailing" secondItem="6wX-md-Zja" secondAttribute="trailing" id="YWR-O4-0ML"/>
                             <constraint firstItem="6wX-md-Zja" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="50" id="avK-N4-Fj5"/>
                             <constraint firstItem="6wX-md-Zja" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="bV9-3B-drM"/>
                             <constraint firstAttribute="bottom" secondItem="6wX-md-Zja" secondAttribute="bottom" id="dFb-B7-nsv"/>
                             <constraint firstItem="f7b-8L-5vC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="9" id="pbh-Ma-RaH"/>
+                            <constraint firstAttribute="trailing" secondItem="oH2-ve-yE2" secondAttribute="trailing" constant="20" symbolic="YES" id="ujT-HM-PFz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -843,6 +855,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSActionTemplate" catalog="system" width="20" height="20"/>
+        <image name="NSActionTemplate" width="20" height="20"/>
     </resources>
 </document>

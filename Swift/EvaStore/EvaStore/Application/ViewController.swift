@@ -9,7 +9,7 @@ import Cocoa
 
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
-    let books: [Book] = [
+    var books: [Book] = [
         .init(title: "The Alchemist",
               coverPicture: nil,
               author: .init(name: "Paulo Coelho",
@@ -40,6 +40,17 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     @IBOutlet weak var booksTableView: NSTableView!
     
+    // Single Responsibility Principle
+    // Action handling
+    @IBAction func userDidClickDeleteButton(_ sender: NSButton) {
+        deleteBook(position: booksTableView.selectedRow)
+    }
+    
+    // Operational
+    func deleteBook(position: Int) {
+        books.remove(at: position)
+        booksTableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
