@@ -44,12 +44,14 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     // Action handling
     @IBAction func userDidClickDeleteButton(_ sender: NSButton) {
         deleteBook(position: booksTableView.selectedRow)
+        
+        print("Delete a book from table \(Book.bookTableId)")
     }
     
     // Operational
     func deleteBook(position: Int) {
         books.remove(at: position)
-        booksTableView.reloadData()
+        booksTableView?.reloadData()
     }
 
     override func viewDidLoad() {

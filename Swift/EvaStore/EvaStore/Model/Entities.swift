@@ -29,9 +29,21 @@ struct Author {
 /// Representa un libro de la base de datos con su informacion
 /// mas esencial.
 struct Book {
+    static let bookTableId = "bookTable"
+    
     let title: String
     let coverPicture: URL?
     let author: Author
     let publicationDate: Date
     let genre: Genre
+    
+    func daysSincePublication() -> Int {
+        let now = Date()
+        return Int(now.timeIntervalSince(self.publicationDate) / 86400)
+    }
+    
+    static func calculateDaysSincePublication(from book: Book) -> Int {
+        let now = Date()
+        return Int(now.timeIntervalSince(book.publicationDate) / 86400)
+    }
 }
