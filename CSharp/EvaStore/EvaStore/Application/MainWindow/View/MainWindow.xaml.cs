@@ -14,46 +14,40 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using ABI.Windows.ApplicationModel.Store.Preview.InstallControl;
 using EvaStore.Model;
+using System.Drawing;
+using EvaStore.Application.MainWindow.ViewModel;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
+// SOLID
+// S: Single Responsibility Princilpe
+
 namespace EvaStore
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// Controller: An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        public List<Book> books = [
-            new(
-                title: "The Alchemist",
-                author: new("Paulo Coelho", "Brazilian", [Genre.Fiction, Genre.Fantasy]),
-                publicationTime:DateTime.Now,
-                genre: Genre.Fiction
-            ),
-            new(
-                title: "The Great Gatsby",
-                author: new("F. Scott Fitzgerald", "American", [Genre.Fiction, Genre.Fantasy]),
-                publicationTime:DateTime.Now,
-                genre: Genre.Fiction
-            ),
-            new(
-                title: "The Alchemist",
-                author: new("Dan Brown", "American", [Genre.Fiction, Genre.Thriller]),
-                publicationTime:DateTime.Now,
-                genre: Genre.Fiction
-            )
-        ];
+        MainWindowViewModel model = new MainWindowViewModel();
 
         public MainWindow()
         {
             this.InitializeComponent();
+
+            model.ChangeColor += () =>
+            {
+                myButton.Content = "Color Changed!";
+                myButton.Background = new SolidColorBrush(Microsoft.UI.Colors.Red);
+            };
+
+            myButton.Content = "Change Color";
         }
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = "Clicked";
+            model.userWantsToChangeColor();
         }
     }
 }
