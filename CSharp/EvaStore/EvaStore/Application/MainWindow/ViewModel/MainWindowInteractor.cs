@@ -11,7 +11,11 @@ public partial class MainWindowViewModel
         ChangeColor();
     }
 
-    internal void userWantsToDeleteBook(int bookIndex)
+    /// <summary>
+    /// Delete a book from the list
+    /// </summary>
+    /// <param name="bookIndex">The position of the book in the list</param>
+    public void userWantsToDeleteBook(int bookIndex)
     {
         books.RemoveAt(bookIndex);
     }

@@ -1,3 +1,4 @@
+using EvaStore.Application.MainWindow.ViewModel;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting.AppContainer;
@@ -16,12 +17,21 @@ namespace EvaStoreTests
             Assert.AreEqual(0, 0);
         }
 
-        // Use the UITestMethod attribute for tests that need to run on the UI thread.
-        [UITestMethod]
-        public void TestMethod2()
+        [TestMethod]
+        public void TestDeleteBook()
         {
-            var grid = new Grid();
-            Assert.AreEqual(0, grid.MinWidth);
+            // Dado (precondiciones)
+            var sujeto = new MainWindowViewModel();
+            var initialCount = sujeto.books.Count;
+            var selectedIndex = 0;
+            var bookToDelete = sujeto.books.ElementAt(selectedIndex);
+
+            // Cuando (accion o evento)
+            sujeto.userWantsToDeleteBook(selectedIndex);
+
+            // Entonces (expectativas)
+            Assert.AreEqual(expected: initialCount - 1, actual: sujeto.books.Count);
+            Assert.IsFalse(sujeto.books.Contains(bookToDelete));
         }
     }
 }
