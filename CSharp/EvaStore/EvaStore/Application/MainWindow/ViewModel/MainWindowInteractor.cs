@@ -1,11 +1,4 @@
-﻿using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace EvaStore.Application.MainWindow.ViewModel;
 
@@ -16,5 +9,10 @@ public partial class MainWindowViewModel
     internal void userWantsToChangeColor()
     {
         ChangeColor();
+    }
+
+    internal void userWantsToDeleteBook(int bookIndex)
+    {
+        books.RemoveAt(bookIndex);
     }
 }

@@ -49,5 +49,11 @@ namespace EvaStore
         {
             model.userWantsToChangeColor();
         }
+
+        private void deleteButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var selectedIndex = booksTable.SelectedIndex;
+            model.userWantsToDeleteBook(bookIndex: selectedIndex);
+        }
     }
 }
