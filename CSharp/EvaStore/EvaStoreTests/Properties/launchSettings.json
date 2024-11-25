@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EvaStoreTests (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "EvaStoreTests (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
