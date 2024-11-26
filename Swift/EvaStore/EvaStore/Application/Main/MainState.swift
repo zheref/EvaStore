@@ -9,6 +9,9 @@ import Foundation
 
 struct MainModel {
     
+    // Weak solo funciona con tipos referencia
+    weak var collectionUpdater: CollectionUpdater?
+    
     var books: [Book] = [
         .init(title: "The Alchemist",
               coverPicture: URL(string: "https://clubmagichour.com/cdn/shop/products/the-alchemist-by-paulo-coelho-magic-hour-282883.png?v=1707767532&width=1024"),

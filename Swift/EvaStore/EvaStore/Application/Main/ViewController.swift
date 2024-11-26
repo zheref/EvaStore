@@ -16,6 +16,12 @@ import AppKit
 // UIKit (Moderno para iOS con Obj-C) -> Swift
 // SwiftUI (macOS y iOS)
 
+protocol CollectionUpdater: AnyObject {
+    
+    func reloadCollection()
+    
+}
+
 class ViewController: NSViewController {
     
     // MARK: - Stored Properties
@@ -29,7 +35,12 @@ class ViewController: NSViewController {
     // Single Responsibility Principle
     // Action handling
     @IBAction func userDidClickDeleteButton(_ sender: NSButton) {
-        model.userWantsToDeleteBook(position: 0)
+        let selectedIndexes = booksCollectionView.selectionIndexes
+        let singleSelectedIndex = selectedIndexes.first
+        
+        guard let singleSelectedIndex else { return }
+        
+        model.userWantsToDeleteBook(position: singleSelectedIndex)
         print("Delete a book from table \(Book.bookTableId)")
     }
     
@@ -43,6 +54,8 @@ class ViewController: NSViewController {
                                      forItemWithIdentifier: .init("bookCell"))
         booksCollectionView.dataSource = self
         booksCollectionView.isSelectable = true
+        
+        model.collectionUpdater = self
     }
 
     override var representedObject: Any? {
@@ -100,6 +113,14 @@ extension ViewController: NSCollectionViewDataSource {
         bookCell.setBook(book)
         
         return bookCell
+    }
+    
+}
+
+extension ViewController: CollectionUpdater {
+    
+    func reloadCollection() {
+        booksCollectionView.reloadData()
     }
     
 }

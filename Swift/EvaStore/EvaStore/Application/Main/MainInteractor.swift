@@ -8,7 +8,10 @@
 extension MainModel {
     
     mutating func userWantsToDeleteBook(position: Int) {
+        // Elimina el libro
         books.remove(at: position)
+        // Manda a actualizar la UI
+        collectionUpdater?.reloadCollection()
     }
     
 }
