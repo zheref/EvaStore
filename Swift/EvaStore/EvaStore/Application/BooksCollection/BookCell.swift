@@ -55,7 +55,9 @@ class BookCell: NSCollectionViewItem {
         print("Intentando descargar portada de libro \(book?.title ?? "Sin titulo") con URL: \(url.absoluteString)")
         setBookCover(image: nil)
         
-        let task = URLSession.shared.dataTask(with: url) { [unowned self] data, _, error in
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let self else { return }
+            
             // Truquito para desenvolver (unwrap) con el mismo nombre
             if let error {
                 // Hubo error
