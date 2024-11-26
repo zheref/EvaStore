@@ -16,7 +16,7 @@ import AppKit
 // UIKit (Moderno para iOS con Obj-C) -> Swift
 // SwiftUI (macOS y iOS)
 
-class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class ViewController: NSViewController {
     
     var books: [Book] = [
         .init(title: "The Alchemist",
@@ -47,6 +47,10 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
               genre: .fiction),
     ]
     
+    // MARK: Outlets
+    
+    @IBOutlet weak var booksCollectionView: NSCollectionView!
+    
     // Single Responsibility Principle
     // Action handling
     @IBAction func userDidClickDeleteButton(_ sender: NSButton) {
@@ -65,13 +69,14 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //booksTableView.dataSource = self
-        //booksTableView.delegate = self
+        booksCollectionView.register(BookCell.self,
+                                     forItemWithIdentifier: .init("bookCell"))
+        booksCollectionView.dataSource = self
     }
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
 
@@ -112,3 +117,40 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 
 }
 
+extension ViewController: NSCollectionViewDataSource {
+    
+    // Implementamos metodo que establece la cantidad de secciones a tener la coleccion
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 1
+    }
+    
+    // Implementamos metodo que establezca cantidad de items por seccion
+    func collectionView(_ collectionView: NSCollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return books.count
+    }
+    
+    // Implementamos metodo que construye cada celda a presentar
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        
+        // 1. Construimos o reciclamos item
+        let item = collectionView.makeItem(
+            withIdentifier: .init(rawValue: "bookCell"),
+            for: indexPath
+        )
+        
+        // 2. Intentamos castear
+        guard let bookCell = item as? BookCell else {
+            return item
+        }
+        
+        // 2.5 Buscamos libro a configurar
+        let book = books[indexPath.item]
+        
+        // 3. Configurar
+        bookCell.setBook(book)
+        
+        return bookCell
+    }
+    
+}
