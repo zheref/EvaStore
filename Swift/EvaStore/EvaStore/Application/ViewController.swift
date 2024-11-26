@@ -20,7 +20,7 @@ class ViewController: NSViewController {
     
     var books: [Book] = [
         .init(title: "The Alchemist",
-              coverPicture: nil,
+              coverPicture: URL(string: "https://clubmagichour.com/cdn/shop/products/the-alchemist-by-paulo-coelho-magic-hour-282883.png?v=1707767532&width=1024"),
               author: .init(name: "Paulo Coelho",
                             nationality: "Brazilian",
                             birthDate: nil,
@@ -29,7 +29,7 @@ class ViewController: NSViewController {
               genre: .fiction),
         
         Book(title: "The Great Gatsby",
-             coverPicture: nil,
+             coverPicture: URL(string: "https://m.media-amazon.com/images/I/81QuEGw8VPL._SY425_.jpg"),
              author: .init(name: "F. Scott Fitzgerald",
                            nationality: "American",
                            birthDate: nil,
@@ -38,7 +38,7 @@ class ViewController: NSViewController {
              genre: .fiction),
         
         .init(title: "The Da Vinci Code",
-              coverPicture: nil,
+              coverPicture: URL(string: "https://m.media-amazon.com/images/I/41nJiN9TSDL._SY445_SX342_.jpg"),
               author: .init(name: "Dan Brown",
                             nationality: "American",
                             birthDate: nil,

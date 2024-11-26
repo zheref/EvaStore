@@ -42,6 +42,52 @@ class BookCell: NSCollectionViewItem {
         authorLabel.stringValue = book.author.name
         
         // TODO: Update Cover Image
+        if let coverUrl = book.coverPicture {
+            fetchCoverImage(coverUrl)
+        }
+    }
+    
+    /// Descarga una imagen de una URL dada y la configura en el
+    /// imageView de la celda
+    /// - Parameters:
+    ///  - url: La URL de la imagen a ser descargada y presentada
+    func fetchCoverImage(_ url: URL) {
+        print("Intentando descargar portada de libro \(book?.title ?? "Sin titulo") con URL: \(url.absoluteString)")
+        setBookCover(image: nil)
+        
+        let task = URLSession.shared.dataTask(with: url) { [unowned self] data, _, error in
+            // Truquito para desenvolver (unwrap) con el mismo nombre
+            if let error {
+                // Hubo error
+                self.setBookCover(image: nil)
+                print(error.localizedDescription)
+            }
+            
+            // No hubo error
+            if let data {
+                if let image = NSImage(data: data) {
+                    // Si habia una imagen
+                    print(
+                        "Descargamos satisfactoriamente portada de libro \(self.book?.title)"
+                    )
+                    self.setBookCover(image: image)
+                } else {
+                    // No es una imagen
+                    self.setBookCover(image: nil)
+                }
+            } else {
+                // No hay datos (0 bytes)
+                self.setBookCover(image: nil)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    private func setBookCover(image: NSImage?) {
+        DispatchQueue.main.async {
+            self.coverImageView.image = image
+        }
     }
     
 }
