@@ -7,6 +7,27 @@
 
 import Cocoa
 
+extension NSView {
+    
+    var backgroundColor: NSColor? {
+        get {
+            guard let color = layer?.backgroundColor else { return nil }
+            return NSColor(cgColor: color)
+        }
+        set {
+            wantsLayer = true
+            layer?.backgroundColor = newValue?.cgColor
+        }
+    }
+    
+    func getRoundedCorners() {
+        wantsLayer = true
+        layer?.masksToBounds = true
+        layer?.cornerRadius = 10
+    }
+    
+}
+
 class BookCell: NSCollectionViewItem {
     
     // MARK: - Stored Properties
@@ -23,11 +44,26 @@ class BookCell: NSCollectionViewItem {
     @IBOutlet weak var titleLabel: NSTextField!
     
     @IBOutlet weak var authorLabel: NSTextField!
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                view.backgroundColor = .systemBlue
+                titleLabel.textColor = .white
+                authorLabel.textColor = .white
+            } else {
+                view.backgroundColor = .clear
+                titleLabel.textColor = .textColor
+                authorLabel.textColor = .textColor
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.identifier = NSUserInterfaceItemIdentifier(rawValue: "bookCell")
+        view.getRoundedCorners()
     }
     
     /// Actualiza los datos presentados en la celda

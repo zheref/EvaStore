@@ -18,34 +18,9 @@ import AppKit
 
 class ViewController: NSViewController {
     
-    var books: [Book] = [
-        .init(title: "The Alchemist",
-              coverPicture: URL(string: "https://clubmagichour.com/cdn/shop/products/the-alchemist-by-paulo-coelho-magic-hour-282883.png?v=1707767532&width=1024"),
-              author: .init(name: "Paulo Coelho",
-                            nationality: "Brazilian",
-                            birthDate: nil,
-                            genres: [.fiction, .fantasy]),
-              publicationDate: Date(),
-              genre: .fiction),
-        
-        Book(title: "The Great Gatsby",
-             coverPicture: URL(string: "https://m.media-amazon.com/images/I/81QuEGw8VPL._SY425_.jpg"),
-             author: .init(name: "F. Scott Fitzgerald",
-                           nationality: "American",
-                           birthDate: nil,
-                           genres: [.fiction, .fantasy]),
-             publicationDate: Date(),
-             genre: .fiction),
-        
-        .init(title: "The Da Vinci Code",
-              coverPicture: URL(string: "https://m.media-amazon.com/images/I/41nJiN9TSDL._SY445_SX342_.jpg"),
-              author: .init(name: "Dan Brown",
-                            nationality: "American",
-                            birthDate: nil,
-                            genres: [.fiction, .thriller]),
-              publicationDate: Date(),
-              genre: .fiction),
-    ]
+    // MARK: - Stored Properties
+    
+    var model = MainModel()
     
     // MARK: Outlets
     
@@ -54,16 +29,11 @@ class ViewController: NSViewController {
     // Single Responsibility Principle
     // Action handling
     @IBAction func userDidClickDeleteButton(_ sender: NSButton) {
-        //deleteBook(position: booksTableView.selectedRow)
-        
+        model.userWantsToDeleteBook(position: 0)
         print("Delete a book from table \(Book.bookTableId)")
     }
     
     // Operational
-    func deleteBook(position: Int) {
-        books.remove(at: position)
-        //booksTableView?.reloadData()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +42,7 @@ class ViewController: NSViewController {
         booksCollectionView.register(BookCell.self,
                                      forItemWithIdentifier: .init("bookCell"))
         booksCollectionView.dataSource = self
+        booksCollectionView.isSelectable = true
     }
 
     override var representedObject: Any? {
@@ -83,7 +54,7 @@ class ViewController: NSViewController {
     // Implementacion de DataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return books.count
+        return model.books.count
     }
     
     enum BookColumn {
@@ -91,28 +62,6 @@ class ViewController: NSViewController {
         static let author = NSUserInterfaceItemIdentifier("author")
 //        case publicationDate
 //        case genre
-    }
-    
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let book = books[row]
-        
-        if tableColumn == tableView.tableColumns[0] {
-            let titleCell = tableView.makeView(
-                withIdentifier: BookColumn.title,
-                owner: nil
-            ) as! NSTableCellView
-            titleCell.textField?.stringValue = book.title
-            return titleCell
-        } else if tableColumn == tableView.tableColumns[1] {
-            let authorCell = tableView.makeView(
-                withIdentifier: BookColumn.author,
-                owner: nil
-            ) as! NSTableCellView
-            authorCell.textField?.stringValue = book.author.name
-            return authorCell
-        } else {
-            return nil
-        }
     }
 
 }
@@ -127,7 +76,7 @@ extension ViewController: NSCollectionViewDataSource {
     // Implementamos metodo que establezca cantidad de items por seccion
     func collectionView(_ collectionView: NSCollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return books.count
+        return model.books.count
     }
     
     // Implementamos metodo que construye cada celda a presentar
@@ -145,7 +94,7 @@ extension ViewController: NSCollectionViewDataSource {
         }
         
         // 2.5 Buscamos libro a configurar
-        let book = books[indexPath.item]
+        let book = model.books[indexPath.item]
         
         // 3. Configurar
         bookCell.setBook(book)
