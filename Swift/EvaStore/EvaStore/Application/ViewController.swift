@@ -5,7 +5,16 @@
 //  Created by Sergio Daniel on 11/18/24.
 //
 
-import Cocoa
+import AppKit
+
+// mac
+// Cocoa (Obj-C)
+// iPhone
+// Cocoa Touch (Obj-C)
+// Evolution ------
+// AppKit (Moderno para macOS con Obj-C) -> Swift
+// UIKit (Moderno para iOS con Obj-C) -> Swift
+// SwiftUI (macOS y iOS)
 
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
@@ -38,12 +47,10 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
               genre: .fiction),
     ]
     
-    @IBOutlet weak var booksTableView: NSTableView!
-    
     // Single Responsibility Principle
     // Action handling
     @IBAction func userDidClickDeleteButton(_ sender: NSButton) {
-        deleteBook(position: booksTableView.selectedRow)
+        //deleteBook(position: booksTableView.selectedRow)
         
         print("Delete a book from table \(Book.bookTableId)")
     }
@@ -51,15 +58,15 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     // Operational
     func deleteBook(position: Int) {
         books.remove(at: position)
-        booksTableView?.reloadData()
+        //booksTableView?.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        booksTableView.dataSource = self
-        booksTableView.delegate = self
+        //booksTableView.dataSource = self
+        //booksTableView.delegate = self
     }
 
     override var representedObject: Any? {
