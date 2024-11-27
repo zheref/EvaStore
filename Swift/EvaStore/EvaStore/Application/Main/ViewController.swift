@@ -33,6 +33,8 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var booksCollectionView: NSCollectionView!
     
+    // MARK: - Actions
+    
     // Single Responsibility Principle
     // Action handling
     @IBAction func userDidClickDeleteButton(_ sender: NSButton) {
@@ -44,6 +46,11 @@ class ViewController: NSViewController {
         model.userWantsToDeleteBook(position: singleSelectedIndex)
         print("Delete a book from table \(Book.bookTableId)")
     }
+    
+    @IBAction func userDidClickAddPlaceholderButton(_ sender: Any) {
+        model.userWantsToAddPlaceholder()
+    }
+    
     
     // Operational
 
