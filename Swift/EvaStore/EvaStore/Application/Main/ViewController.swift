@@ -156,4 +156,8 @@ extension ViewController: WindowOpener {
         windowController.showWindow(nil)
     }
     
+    func openQuickAndDirtyWindow() {
+        NSWindowController(window: .init(contentViewController: NewBookFormController())).showWindow(nil)
+    }
+    
 }
