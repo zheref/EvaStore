@@ -146,7 +146,7 @@ extension ViewController: CollectionUpdater {
 extension ViewController: WindowOpener {
     
     func openNewBookWindow() {
-        // Instaciamos la pantallita
+        // Instaciamos la pantallita que ya creamos con el XIB
         let newBookViewController = NewBookFormController()
         // Instanciamos una ventana para nuestra pantallita
         let window = NSWindow(contentViewController: newBookViewController)
