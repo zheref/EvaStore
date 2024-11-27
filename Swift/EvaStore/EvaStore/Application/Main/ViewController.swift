@@ -22,6 +22,7 @@ protocol CollectionUpdater: AnyObject {
     
 }
 
+// UI
 class ViewController: NSViewController {
     
     // MARK: - Stored Properties
