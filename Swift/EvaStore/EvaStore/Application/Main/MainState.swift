@@ -10,8 +10,11 @@ import Foundation
 // Logic
 struct MainModel {
     
+    // Delegates
+    
     // Weak solo funciona con tipos referencia
     weak var collectionUpdater: CollectionUpdater?
+    weak var windowOpener: WindowOpener?
     
     // MARK: - Stored Propeties
     

@@ -22,6 +22,11 @@ protocol CollectionUpdater: AnyObject {
     
 }
 
+protocol WindowOpener: AnyObject {
+    
+    func openNewBookWindow()
+}
+
 // UI
 class ViewController: NSViewController {
     
@@ -51,6 +56,10 @@ class ViewController: NSViewController {
         model.userWantsToAddPlaceholder()
     }
     
+    @IBAction func userDidClickAddNewButton(_ sender: NSButton) {
+        model.userWantsToCreateNewBook()
+    }
+    
     
     // Operational
 
@@ -64,6 +73,7 @@ class ViewController: NSViewController {
         booksCollectionView.isSelectable = true
         
         model.collectionUpdater = self
+        model.windowOpener = self
     }
 
     override var representedObject: Any? {
@@ -129,6 +139,21 @@ extension ViewController: CollectionUpdater {
     
     func reloadCollection() {
         booksCollectionView.reloadData()
+    }
+    
+}
+
+extension ViewController: WindowOpener {
+    
+    func openNewBookWindow() {
+        // Instaciamos la pantallita
+        let newBookViewController = NewBookFormController()
+        // Instanciamos una ventana para nuestra pantallita
+        let window = NSWindow(contentViewController: newBookViewController)
+        // Instanciamos un controlador para nuestra ventanita
+        let windowController = NSWindowController(window: window)
+        // Presentamos nuestro controlador de ventanita
+        windowController.showWindow(nil)
     }
     
 }

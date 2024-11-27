@@ -25,6 +25,10 @@ extension MainModel {
         collectionUpdater?.reloadCollection()
     }
     
+    func userWantsToCreateNewBook() {
+        windowOpener?.openNewBookWindow()
+    }
+    
     // MARK: - System Events
     
 }
