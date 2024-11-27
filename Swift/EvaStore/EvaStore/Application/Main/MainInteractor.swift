@@ -19,19 +19,7 @@ extension MainModel {
     }
     
     mutating func userWantsToAddPlaceholder() {
-        let placeholderBook = Book(
-            title: "Chronicles of Narnia",
-            coverPicture: URL(string: "https://images.cdn3.buscalibre.com/fit-in/360x360/78/1a/781ac6423eee238c27e6c70a9b6a3a0c.jpg"),
-            author: .init(
-                name: "C.S. Lewis",
-                nationality: "English",
-                birthDate: Date(),
-                genres: [.fantasy]
-            ),
-            publicationDate: Date(),
-            genre: .fantasy
-        )
-        
+        let placeholderBook = Book.narnia
         books.append(placeholderBook)
         
         collectionUpdater?.reloadCollection()
