@@ -16,6 +16,12 @@ extension NSButton {
 
 class NewBookFormController: NSViewController {
     
+    // MARK: - Stored Properties
+    
+    // MARK: Model
+    
+    var model: NewBookFormModel
+    
     // MARK: - Outlets
     
     @IBOutlet weak var cancelButton: NSButton!
@@ -26,6 +32,18 @@ class NewBookFormController: NSViewController {
     @IBOutlet weak var authorTextField: NSTextField!
     
     @IBOutlet weak var coverImageURLTextField: NSTextField!
+    
+    // Initializer
+    
+    init(model: NewBookFormModel) {
+        self.model = model
+        super.init(nibName: "NewBookFormController",
+                   bundle: Bundle.main)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +59,29 @@ class NewBookFormController: NSViewController {
         
         // TODO: Research how to change button title color
         cancelButton.change(color: .red)
+        
+        model.windowCloser = self
     }
     
+    @IBAction func userDidClickCancelButton(_ sender: NSButton) {
+        model.userWantsToCancelBookCreation()
+    }
     
+    @IBAction func userDidClickDoneButton(_ sender: NSButton) {
+        model
+            .userWantsToConfirmBookCreation(
+                title: titleTextField.stringValue,
+                authorName: authorTextField.stringValue,
+                coverURLString: coverImageURLTextField.stringValue
+            )
+    }
+    
+}
+
+extension NewBookFormController: WindowCloser {
+    
+    func close() {
+        view.window?.close()
+    }
     
 }

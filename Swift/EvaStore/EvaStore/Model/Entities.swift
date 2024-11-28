@@ -16,6 +16,7 @@ enum Genre: String {
     case history
     case fantasy
     case thriller
+    case unknown
 }
 
 /// Representa los datos mas basicos del autor de uno o mas libros.

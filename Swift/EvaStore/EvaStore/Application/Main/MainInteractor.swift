@@ -31,4 +31,15 @@ extension MainModel {
     
     // MARK: - System Events
     
+    func viewIsReadyForData() {
+        // TODO: Load data
+        // 1. Local: DB, File, UserDefaults, Device (Camera, GPS, Galeria...)
+        // 2. Remote: API (SOAP, REST, GraphQL), SDK (Firebase, ...)
+    }
+    
+    mutating func newBookWasCreated(book: Book) {
+        books.append(book)
+        collectionUpdater?.reloadCollection()
+    }
+    
 }

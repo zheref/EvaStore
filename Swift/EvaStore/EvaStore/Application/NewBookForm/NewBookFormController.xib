@@ -82,6 +82,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="systemBold"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="userDidClickDoneButton:" target="-2" id="LtX-Iu-o45"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gqo-bH-Evg">
                     <rect key="frame" x="327" y="220" width="76" height="32"/>
@@ -93,6 +96,9 @@ Gw
 </string>
                     </buttonCell>
                     <color key="contentTintColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                    <connections>
+                        <action selector="userDidClickCancelButton:" target="-2" id="pe4-gE-lvC"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>

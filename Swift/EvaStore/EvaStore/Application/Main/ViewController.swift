@@ -74,6 +74,8 @@ class ViewController: NSViewController {
         
         model.collectionUpdater = self
         model.windowOpener = self
+        
+        model.viewIsReadyForData()
     }
 
     override var representedObject: Any? {
@@ -147,7 +149,11 @@ extension ViewController: WindowOpener {
     
     func openNewBookWindow() {
         // Instaciamos la pantallita que ya creamos con el XIB
-        let newBookViewController = NewBookFormController()
+        let newBookViewController = NewBookFormController(
+            model: NewBookFormModel(onAddBook: { newBook in
+                self.model.newBookWasCreated(book: newBook)
+            })
+        )
         // Instanciamos una ventana para nuestra pantallita
         let window = NSWindow(contentViewController: newBookViewController)
         // Instanciamos un controlador para nuestra ventanita
@@ -157,7 +163,7 @@ extension ViewController: WindowOpener {
     }
     
     func openQuickAndDirtyWindow() {
-        NSWindowController(window: .init(contentViewController: NewBookFormController())).showWindow(nil)
+//        NSWindowController(window: .init(contentViewController: NewBookFormController())).showWindow(nil)
     }
     
 }
