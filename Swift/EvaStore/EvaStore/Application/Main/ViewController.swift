@@ -148,11 +148,14 @@ extension ViewController: CollectionUpdater {
 extension ViewController: WindowOpener {
     
     func openNewBookWindow() {
+        // Creamos el modelo para la nueva pantalla
+        let newBookModel = NewBookFormModel(onAddBook: { newBook in
+            self.model.newBookWasCreated(book: newBook)
+        })
+        
         // Instaciamos la pantallita que ya creamos con el XIB
         let newBookViewController = NewBookFormController(
-            model: NewBookFormModel(onAddBook: { newBook in
-                self.model.newBookWasCreated(book: newBook)
-            })
+            model: newBookModel
         )
         // Instanciamos una ventana para nuestra pantallita
         let window = NSWindow(contentViewController: newBookViewController)
