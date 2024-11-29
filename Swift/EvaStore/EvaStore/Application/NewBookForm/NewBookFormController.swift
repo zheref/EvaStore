@@ -61,6 +61,10 @@ class NewBookFormController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        titleTextField.delegate = self
+        authorTextField.delegate = self
+        coverImageURLTextField.delegate = self
     }
     
     override func viewDidAppear() {
@@ -113,6 +117,17 @@ extension NewBookFormController: WindowCloser {
     
     func close() {
         view.window?.close()
+    }
+    
+}
+
+extension NewBookFormController: NSTextFieldDelegate {
+    
+    func controlTextDidChange(_ notification: Notification) {
+        let textField = notification.object as! NSTextField
+        if textField.stringValue.isEmpty == false {
+            textField.switchToOriginalStyle()
+        }
     }
     
 }

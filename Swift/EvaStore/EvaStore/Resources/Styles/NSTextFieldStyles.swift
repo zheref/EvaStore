@@ -10,7 +10,7 @@ import AppKit
 extension NSTextField {
     
     // Estilo Original
-    func swithToMissingInfoStyle() {
+    func switchToOriginalStyle() {
         textColor = .textColor
         setOutlineColor(NSColor.separatorColor, borderWidth: 1)
         placeholderString = ""
