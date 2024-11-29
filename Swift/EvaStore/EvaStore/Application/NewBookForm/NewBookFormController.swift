@@ -14,6 +14,19 @@ extension NSButton {
     }
 }
 
+extension NSTextField {
+    
+    /// Setea el color del borde exterior del campo de texto
+    /// - Parameters:
+    ///     - color: El color a configurar
+    func setOutlineColor(_ color: NSColor, borderWidth: CGFloat) {
+        // self.backgroundColor = color
+        self.layer?.borderColor = color.cgColor
+        self.layer?.borderWidth = borderWidth
+    }
+    
+}
+
 class NewBookFormController: NSViewController {
     
     // MARK: - Stored Properties
@@ -68,12 +81,30 @@ class NewBookFormController: NSViewController {
     }
     
     @IBAction func userDidClickDoneButton(_ sender: NSButton) {
+        if let missingField = validateForm() {
+            missingField.swithToMissingInfoStyle("Required text here")
+            return
+        }
+        
         model
             .userWantsToConfirmBookCreation(
                 title: titleTextField.stringValue,
                 authorName: authorTextField.stringValue,
                 coverURLString: coverImageURLTextField.stringValue
             )
+    }
+    
+    /// Encuentra el primer campo al cual le falte informacion en
+    /// el formulario y lo retorna.
+    /// - Returns: El primer campo encontrado sin texto o nil si todos tienen texto
+    private func validateForm() -> NSTextField? {
+        let fieldsToEvaluate: [NSTextField] = [
+            titleTextField,
+            authorTextField,
+            coverImageURLTextField
+        ]
+        
+        return fieldsToEvaluate.first(where: { $0.stringValue.isEmpty })
     }
     
 }

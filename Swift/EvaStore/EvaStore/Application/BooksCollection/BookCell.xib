@@ -25,7 +25,7 @@
                         <constraint firstAttribute="width" constant="60" id="F67-wp-zoh"/>
                         <constraint firstAttribute="height" constant="100" id="Ojy-lq-0B6"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="gameOfThronesCover" id="YU4-d8-cUN"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="YU4-d8-cUN"/>
                 </imageView>
                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U26-Yh-eXZ">
                     <rect key="frame" x="6" y="41" width="109" height="16"/>
@@ -63,7 +63,4 @@
             </connections>
         </collectionViewItem>
     </objects>
-    <resources>
-        <image name="gameOfThronesCover" width="419" height="648"/>
-    </resources>
 </document>
