@@ -10,6 +10,14 @@ import XCTest
 
 final class EvaStoreTests: XCTestCase {
 
-    
+    func testSomething() {
+        // Given
+        
+        // When
+        
+        // Then
+
+        
+    }
 
 }

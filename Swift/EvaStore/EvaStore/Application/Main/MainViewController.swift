@@ -22,13 +22,14 @@ protocol CollectionUpdater: AnyObject {
     
 }
 
-protocol WindowOpener: AnyObject {
+// Interfaces
+protocol NewBookWindowOpener: AnyObject {
     
     func openNewBookWindow()
 }
 
 // UI
-class ViewController: NSViewController {
+class MainViewController: NSViewController {
     
     // MARK: - Stored Properties
     
@@ -72,8 +73,8 @@ class ViewController: NSViewController {
         booksCollectionView.dataSource = self
         booksCollectionView.isSelectable = true
         
-        model.collectionUpdater = self
-        model.windowOpener = self
+        model.collectionUpdaterDelegate = self
+        model.windowOpenerDelegate = self
         
         model.viewIsReadyForData()
     }
@@ -99,7 +100,7 @@ class ViewController: NSViewController {
 
 }
 
-extension ViewController: NSCollectionViewDataSource {
+extension MainViewController: NSCollectionViewDataSource {
     
     // Implementamos metodo que establece la cantidad de secciones a tener la coleccion
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
@@ -137,7 +138,7 @@ extension ViewController: NSCollectionViewDataSource {
     
 }
 
-extension ViewController: CollectionUpdater {
+extension MainViewController: CollectionUpdater {
     
     func reloadCollection() {
         booksCollectionView.reloadData()
@@ -145,7 +146,7 @@ extension ViewController: CollectionUpdater {
     
 }
 
-extension ViewController: WindowOpener {
+extension MainViewController: NewBookWindowOpener {
     
     func openNewBookWindow() {
         // Creamos el modelo para la nueva pantalla

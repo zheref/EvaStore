@@ -27,6 +27,13 @@ struct Author {
     let genres: [Genre]
 }
 
+extension Author: Equatable {
+    static func == (lhs: Author, rhs: Author) -> Bool {
+        lhs.name == rhs.name && lhs.nationality == rhs.nationality
+        && lhs.birthDate == rhs.birthDate && lhs.genres == rhs.genres
+    }
+}
+
 /// Representa un libro de la base de datos con su informacion
 /// mas esencial.
 struct Book {
@@ -47,6 +54,15 @@ struct Book {
         let now = Date()
         return Int(now.timeIntervalSince(book.publicationDate) / 86400)
     }
+}
+
+// Equatable = Comparable
+extension Book: Equatable {
+    
+    static func == (lhs: Book, rhs: Book) -> Bool {
+        lhs.title == rhs.title && lhs.author == rhs.author && lhs.publicationDate == rhs.publicationDate && lhs.genre == rhs.genre && lhs.coverPicture == rhs.coverPicture
+    }
+    
 }
 
 extension Book {

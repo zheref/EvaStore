@@ -8,7 +8,29 @@
 import XCTest
 @testable import EvaStore
 
-final class MainInteractorTests: XCTestCase {
+class FakeWindowOpener: NewBookWindowOpener {
+    var windowOpenedSpy = false
+    
+    func openNewBookWindow() {
+        windowOpenedSpy = true
+    }
+}
+
+class FakeCollectionUpdater: CollectionUpdater {
+    
+    var collectionUpdatedSpy = false
+    
+    func reloadCollection() {
+        collectionUpdatedSpy = true
+    }
+    
+}
+
+// A quien auditamos aqui?
+// MainModel (el modelo)
+final class MainModelTests: XCTestCase {
+    
+    // Let's test User Actions
 
     func testUserWantsToDeleteBook() {
         // Dado
@@ -111,6 +133,62 @@ final class MainInteractorTests: XCTestCase {
         XCTAssertEqual(model.books.count, initialCount + 1)
         
         
+    }
+    
+    // Aprendimos acerca de los espias
+    func testUserWantsToCreateNewBook() {
+        // Dado (proveer condiciones ideales)
+        var sujetoDePrueba = MainModel()
+        
+        // Lo preparamos para que pueda hacer su trabajo
+        let windowOpenerDelegate = FakeWindowOpener()
+        sujetoDePrueba.windowOpenerDelegate = windowOpenerDelegate
+        XCTAssertFalse(windowOpenerDelegate.windowOpenedSpy)
+        
+        // Cuando
+        sujetoDePrueba.userWantsToCreateNewBook()
+        
+        // Entonces
+        XCTAssertTrue(windowOpenerDelegate.windowOpenedSpy)
+    }
+    
+    // Let's test System Events
+    
+    func testNewBookWasCreated() {
+        // Dado
+        var sujetoDePrueba = MainModel()
+        
+        // Condiciones Ideales:
+        let collectionUpdaterDelegate = FakeCollectionUpdater()
+        sujetoDePrueba.collectionUpdaterDelegate = collectionUpdaterDelegate
+        XCTAssertFalse(collectionUpdaterDelegate.collectionUpdatedSpy)
+        let fakeBook = Book(
+            title: "Fake Title",
+            coverPicture: nil,
+            author: .init(
+                name: "Fake Author",
+                nationality: "Fake Nationality",
+                birthDate: Date(),
+                genres: []
+            ),
+            publicationDate: Date(),
+            genre: .fiction
+        )
+        
+        // Cuando
+        sujetoDePrueba.newBookWasCreated(book: fakeBook)
+        
+        // Entonces
+        
+        // Sin Equatable (Book no es Equatable)
+        XCTAssertTrue(
+            sujetoDePrueba.books
+                .contains(where: { $0.title == fakeBook.title })
+        )
+        
+        // Con Equatable (Book es Equatable)
+        XCTAssertTrue(sujetoDePrueba.books.contains(fakeBook))
+        XCTAssertTrue(collectionUpdaterDelegate.collectionUpdatedSpy)
     }
 
 }
