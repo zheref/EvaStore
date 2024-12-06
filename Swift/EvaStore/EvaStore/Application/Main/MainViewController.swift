@@ -35,11 +35,13 @@ class MainViewController: NSViewController {
     
     // MARK: - Stored Properties
     
+    var lastSelectedIndexPath: IndexPath?
+    
     var model = MainModel()
     
     // MARK: Outlets
     
-    @IBOutlet weak var booksCollectionView: NSCollectionView!
+    @IBOutlet weak var booksCollectionView: EvaCollectionView!
     
     // MARK: - Actions
     
@@ -81,6 +83,7 @@ class MainViewController: NSViewController {
         booksCollectionView.register(BookCell.self,
                                      forItemWithIdentifier: .init("bookCell"))
         booksCollectionView.dataSource = self
+        booksCollectionView.evaDelegate = self
         booksCollectionView.isSelectable = true
         
         model.collectionUpdaterDelegate = self
@@ -148,6 +151,10 @@ extension MainViewController: NSCollectionViewDataSource {
     
 }
 
+extension MainViewController: NSCollectionViewDelegate {
+    
+}
+
 extension MainViewController: CollectionUpdater {
     
     func reloadCollection() {
@@ -199,6 +206,42 @@ extension MainViewController: BookWindowOpener {
     
     func openQuickAndDirtyWindow() {
 //        NSWindowController(window: .init(contentViewController: NewBookFormController())).showWindow(nil)
+    }
+    
+}
+
+extension MainViewController: EvaCollectionViewDelegate {
+    
+    func collectionView(_ collectionView:NSCollectionView, menu:NSMenu?, at indexPath: IndexPath?) -> NSMenu? {
+        lastSelectedIndexPath = indexPath
+        let menu = NSMenu()
+        menu
+            .addItem(
+                withTitle: "Edit",
+                action: #selector(userDidClickEditOnContextualMenu),
+                keyEquivalent: "e"
+            )
+        
+        menu
+            .addItem(
+                withTitle: "Delete",
+                action: #selector(userDidClickDeleteOnContextualMenu),
+                keyEquivalent: "d"
+            )
+        
+        return menu
+    }
+    
+    @objc private func userDidClickEditOnContextualMenu() {
+        guard let lastSelectedIndexPath else { return }
+        
+        model.userWantsToEditBook(position: lastSelectedIndexPath.item)
+    }
+    
+    @objc private func userDidClickDeleteOnContextualMenu() {
+        guard let lastSelectedIndexPath else { return }
+        
+        model.userWantsToDeleteBook(position: lastSelectedIndexPath.item)
     }
     
 }

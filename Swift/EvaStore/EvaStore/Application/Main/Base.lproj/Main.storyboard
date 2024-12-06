@@ -733,7 +733,7 @@
                                     <rect key="frame" x="1" y="1" width="478" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="kJ1-cd-GxP">
+                                        <collectionView id="kJ1-cd-GxP" customClass="EvaCollectionView" customModule="EvaStore" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewGridLayout key="collectionViewLayout" id="lCn-FU-Rhq">

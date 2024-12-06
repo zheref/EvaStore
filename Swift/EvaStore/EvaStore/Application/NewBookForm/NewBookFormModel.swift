@@ -34,7 +34,7 @@ struct NewBookFormModel {
         if var book = book {
             let somethingChanged = book.title != title || book.author.name != authorName || book.coverPicture?.absoluteString != coverURLString
             
-            guard somethingChanged else {
+            if !somethingChanged {
                 windowCloser?.close()
                 return
             }
