@@ -41,6 +41,9 @@ class MainViewController: NSViewController {
     
     // MARK: Outlets
     
+    @IBOutlet weak var booksScrollView: NSScrollView!
+    
+    @IBOutlet weak var booksClipView: NSClipView!
     @IBOutlet weak var booksCollectionView: EvaCollectionView!
     
     // MARK: - Actions
@@ -64,6 +67,10 @@ class MainViewController: NSViewController {
         booksCollectionView.dataSource = self
         booksCollectionView.evaDelegate = self
         booksCollectionView.isSelectable = true
+        
+        booksScrollView.scrollerInsets = .init(top: 50, left: 10, bottom: 10, right: 10)
+        booksClipView.contentInsets = .init(top: 50, left: 10, bottom: 10, right: 10)
+        // TODO: Research how to provide some padding (insets) for collection view content (items)
         
         model.collectionUpdaterDelegate = self
         model.windowOpenerDelegate = self
@@ -131,7 +138,6 @@ extension MainViewController: NSCollectionViewDataSource {
 }
 
 extension MainViewController: NSCollectionViewDelegate {
-    
 }
 
 extension MainViewController: CollectionUpdater {

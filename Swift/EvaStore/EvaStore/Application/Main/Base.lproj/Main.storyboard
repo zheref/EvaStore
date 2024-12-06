@@ -709,7 +709,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f7b-8L-5vC">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f7b-8L-5vC">
                                 <rect key="frame" x="7" y="228" width="74" height="31"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Books" id="224-Df-y3z">
                                     <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
@@ -754,8 +754,8 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-KI-6qE">
-                                <rect key="frame" x="256" y="227" width="89" height="32"/>
-                                <buttonCell key="cell" type="push" title="Add New" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LG3-p6-rv0">
+                                <rect key="frame" x="297" y="227" width="48" height="32"/>
+                                <buttonCell key="cell" type="push" title="􀅼" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LG3-p6-rv0">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -778,7 +778,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="booksClipView" destination="IoK-z0-O4R" id="A0G-c0-h6Q"/>
                         <outlet property="booksCollectionView" destination="kJ1-cd-GxP" id="of7-xg-tjr"/>
+                        <outlet property="booksScrollView" destination="DbV-l0-kV8" id="cXQ-8U-xIl"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
