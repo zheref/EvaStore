@@ -19,7 +19,8 @@ struct MainModel {
     // MARK: - Stored Propeties
     
     // TODO: Inyectar informacion desde por fuera
-    var books: [Book] = [
+    // En Swift: Array = LinkedList
+    var books: Array<Book> = [
         .init(title: "The Alchemist",
               coverPicture: URL(string: "https://clubmagichour.com/cdn/shop/products/the-alchemist-by-paulo-coelho-magic-hour-282883.png?v=1707767532&width=1024"),
               author: .init(name: "Paulo Coelho",

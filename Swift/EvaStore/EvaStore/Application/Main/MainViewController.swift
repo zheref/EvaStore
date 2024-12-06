@@ -180,8 +180,8 @@ extension MainViewController: BookWindowOpener {
         // Creamos el modelo para la nueva pantalla
         let newBookModel = NewBookFormModel(
             book: book,
-            onAddBook: { newBook in
-                self.model.newBookWasCreated(book: newBook)
+            onEditBook: { editedBook in
+                self.model.bookWasEdited(book: editedBook)
             }
         )
         

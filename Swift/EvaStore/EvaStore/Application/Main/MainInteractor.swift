@@ -52,4 +52,18 @@ extension MainModel {
         collectionUpdaterDelegate?.reloadCollection()
     }
     
+    mutating func bookWasEdited(book: Book) {
+        let index = books.firstIndex(where: {
+            $0.id == book.id
+        })
+        
+        guard let index else {
+            // TODO: Display error on UI
+            return
+        }
+        
+        books[index] = book
+        collectionUpdaterDelegate?.reloadCollection()
+    }
+    
 }

@@ -21,7 +21,7 @@ enum Genre: String {
 
 /// Representa los datos mas basicos del autor de uno o mas libros.
 struct Author {
-    let name: String
+    var name: String
     let nationality: String?
     let birthDate: Date?
     let genres: [Genre]
@@ -34,14 +34,19 @@ extension Author: Equatable {
     }
 }
 
+extension Author: Hashable {
+    
+}
+
 /// Representa un libro de la base de datos con su informacion
 /// mas esencial.
 struct Book {
     static let bookTableId = "bookTable"
     
-    let title: String
-    let coverPicture: URL?
-    let author: Author
+    let id = UUID()
+    var title: String
+    var coverPicture: URL?
+    var author: Author
     let publicationDate: Date
     let genre: Genre
     
@@ -62,6 +67,10 @@ extension Book: Equatable {
     static func == (lhs: Book, rhs: Book) -> Bool {
         lhs.title == rhs.title && lhs.author == rhs.author && lhs.publicationDate == rhs.publicationDate && lhs.genre == rhs.genre && lhs.coverPicture == rhs.coverPicture
     }
+    
+}
+
+extension Book: Hashable {
     
 }
 
