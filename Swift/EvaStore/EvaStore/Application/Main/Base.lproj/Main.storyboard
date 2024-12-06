@@ -709,7 +709,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f7b-8L-5vC">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f7b-8L-5vC">
                                 <rect key="frame" x="7" y="228" width="74" height="31"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Books" id="224-Df-y3z">
                                     <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
@@ -717,16 +717,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oH2-ve-yE2">
-                                <rect key="frame" x="393" y="227" width="74" height="32"/>
-                                <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CAm-rz-i1P">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="userDidClickDeleteButton:" target="XfG-lQ-9wD" id="zz6-iV-2EZ"/>
-                                </connections>
-                            </button>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbV-l0-kV8">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="218"/>
                                 <clipView key="contentView" id="IoK-z0-O4R">
@@ -754,7 +744,7 @@
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="raf-XI-dfr">
-                                <rect key="frame" x="263" y="227" width="134" height="32"/>
+                                <rect key="frame" x="343" y="227" width="134" height="32"/>
                                 <buttonCell key="cell" type="push" title="Add Placeholder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yML-zm-2US">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -764,7 +754,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-KI-6qE">
-                                <rect key="frame" x="176" y="227" width="89" height="32"/>
+                                <rect key="frame" x="256" y="227" width="89" height="32"/>
                                 <buttonCell key="cell" type="push" title="Add New" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LG3-p6-rv0">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -773,32 +763,18 @@
                                     <action selector="userDidClickAddNewButton:" target="XfG-lQ-9wD" id="iKF-du-D1T"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qn5-t7-Y7l">
-                                <rect key="frame" x="120" y="227" width="58" height="32"/>
-                                <buttonCell key="cell" type="push" title="Edit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ame-X7-uZa">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="userDidClickEditButton:" target="XfG-lQ-9wD" id="av5-Gx-CMn"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="oH2-ve-yE2" firstAttribute="leading" secondItem="raf-XI-dfr" secondAttribute="trailing" constant="10" id="4cm-IO-ufn"/>
                             <constraint firstItem="DbV-l0-kV8" firstAttribute="top" secondItem="f7b-8L-5vC" secondAttribute="bottom" constant="10" id="Bgk-AK-lIO"/>
                             <constraint firstAttribute="trailing" secondItem="DbV-l0-kV8" secondAttribute="trailing" id="E0B-bp-TMQ"/>
-                            <constraint firstItem="oH2-ve-yE2" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="FCO-ER-1qJ"/>
                             <constraint firstAttribute="bottom" secondItem="DbV-l0-kV8" secondAttribute="bottom" id="TaH-hg-WLT"/>
-                            <constraint firstItem="qn5-t7-Y7l" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="X5v-dR-h82"/>
                             <constraint firstItem="f7b-8L-5vC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="11" id="YOk-Sq-n1p"/>
                             <constraint firstItem="IPq-KI-6qE" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="YZb-bE-znC"/>
-                            <constraint firstItem="IPq-KI-6qE" firstAttribute="leading" secondItem="qn5-t7-Y7l" secondAttribute="trailing" constant="12" symbolic="YES" id="d30-p3-pHD"/>
                             <constraint firstItem="raf-XI-dfr" firstAttribute="leading" secondItem="IPq-KI-6qE" secondAttribute="trailing" constant="12" symbolic="YES" id="m8Q-0a-oEW"/>
                             <constraint firstItem="f7b-8L-5vC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="9" id="pbh-Ma-RaH"/>
                             <constraint firstItem="DbV-l0-kV8" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="r2a-6n-hzZ"/>
                             <constraint firstItem="raf-XI-dfr" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="r6v-Du-dKe"/>
-                            <constraint firstAttribute="trailing" secondItem="oH2-ve-yE2" secondAttribute="trailing" constant="20" symbolic="YES" id="ujT-HM-PFz"/>
+                            <constraint firstAttribute="trailing" secondItem="raf-XI-dfr" secondAttribute="trailing" constant="10" id="wPL-Fy-dGc"/>
                         </constraints>
                     </view>
                     <connections>

@@ -45,33 +45,12 @@ class MainViewController: NSViewController {
     
     // MARK: - Actions
     
-    // Single Responsibility Principle
-    // Action handling
-    @IBAction func userDidClickDeleteButton(_ sender: NSButton) {
-        let selectedIndexes = booksCollectionView.selectionIndexes
-        let singleSelectedIndex = selectedIndexes.first
-        
-        guard let singleSelectedIndex else { return }
-        
-        model.userWantsToDeleteBook(position: singleSelectedIndex)
-        print("Delete a book from table \(Book.bookTableId)")
-    }
-    
     @IBAction func userDidClickAddPlaceholderButton(_ sender: Any) {
         model.userWantsToAddPlaceholder()
     }
     
     @IBAction func userDidClickAddNewButton(_ sender: NSButton) {
         model.userWantsToCreateNewBook()
-    }
-    
-    @IBAction func userDidClickEditButton(_ sender: Any) {
-        let selectedIndexes = booksCollectionView.selectionIndexes
-        let singleSelectedIndex = selectedIndexes.first
-        
-        guard let singleSelectedIndex else { return }
-        
-        model.userWantsToEditBook(position: singleSelectedIndex)
     }
     
     // Operational
