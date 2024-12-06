@@ -731,7 +731,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="218"/>
                                 <clipView key="contentView" id="IoK-z0-O4R">
                                     <rect key="frame" x="1" y="1" width="478" height="216"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="kJ1-cd-GxP">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="158"/>
@@ -773,6 +773,16 @@
                                     <action selector="userDidClickAddNewButton:" target="XfG-lQ-9wD" id="iKF-du-D1T"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qn5-t7-Y7l">
+                                <rect key="frame" x="120" y="227" width="58" height="32"/>
+                                <buttonCell key="cell" type="push" title="Edit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ame-X7-uZa">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="userDidClickEditButton:" target="XfG-lQ-9wD" id="av5-Gx-CMn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="oH2-ve-yE2" firstAttribute="leading" secondItem="raf-XI-dfr" secondAttribute="trailing" constant="10" id="4cm-IO-ufn"/>
@@ -780,8 +790,10 @@
                             <constraint firstAttribute="trailing" secondItem="DbV-l0-kV8" secondAttribute="trailing" id="E0B-bp-TMQ"/>
                             <constraint firstItem="oH2-ve-yE2" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="FCO-ER-1qJ"/>
                             <constraint firstAttribute="bottom" secondItem="DbV-l0-kV8" secondAttribute="bottom" id="TaH-hg-WLT"/>
+                            <constraint firstItem="qn5-t7-Y7l" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="X5v-dR-h82"/>
                             <constraint firstItem="f7b-8L-5vC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="11" id="YOk-Sq-n1p"/>
                             <constraint firstItem="IPq-KI-6qE" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="YZb-bE-znC"/>
+                            <constraint firstItem="IPq-KI-6qE" firstAttribute="leading" secondItem="qn5-t7-Y7l" secondAttribute="trailing" constant="12" symbolic="YES" id="d30-p3-pHD"/>
                             <constraint firstItem="raf-XI-dfr" firstAttribute="leading" secondItem="IPq-KI-6qE" secondAttribute="trailing" constant="12" symbolic="YES" id="m8Q-0a-oEW"/>
                             <constraint firstItem="f7b-8L-5vC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="9" id="pbh-Ma-RaH"/>
                             <constraint firstItem="DbV-l0-kV8" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="r2a-6n-hzZ"/>

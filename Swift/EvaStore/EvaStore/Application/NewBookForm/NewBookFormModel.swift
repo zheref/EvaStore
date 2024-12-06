@@ -11,6 +11,8 @@ struct NewBookFormModel {
     
     // State
     
+    var book: Book?
+    
     // Delegate
     weak var windowCloser: WindowCloser?
     

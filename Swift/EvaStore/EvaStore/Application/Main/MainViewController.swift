@@ -23,9 +23,11 @@ protocol CollectionUpdater: AnyObject {
 }
 
 // Interfaces
-protocol NewBookWindowOpener: AnyObject {
+protocol BookWindowOpener: AnyObject {
     
     func openNewBookWindow()
+    
+    func openEditBookWindow(book: Book)
 }
 
 // UI
@@ -61,6 +63,14 @@ class MainViewController: NSViewController {
         model.userWantsToCreateNewBook()
     }
     
+    @IBAction func userDidClickEditButton(_ sender: Any) {
+        let selectedIndexes = booksCollectionView.selectionIndexes
+        let singleSelectedIndex = selectedIndexes.first
+        
+        guard let singleSelectedIndex else { return }
+        
+        model.userWantsToEditBook(position: singleSelectedIndex)
+    }
     
     // Operational
 
@@ -146,13 +156,34 @@ extension MainViewController: CollectionUpdater {
     
 }
 
-extension MainViewController: NewBookWindowOpener {
+extension MainViewController: BookWindowOpener {
     
     func openNewBookWindow() {
         // Creamos el modelo para la nueva pantalla
         let newBookModel = NewBookFormModel(onAddBook: { newBook in
             self.model.newBookWasCreated(book: newBook)
         })
+        
+        // Instaciamos la pantallita que ya creamos con el XIB
+        let newBookViewController = NewBookFormController(
+            model: newBookModel
+        )
+        // Instanciamos una ventana para nuestra pantallita
+        let window = NSWindow(contentViewController: newBookViewController)
+        // Instanciamos un controlador para nuestra ventanita
+        let windowController = NSWindowController(window: window)
+        // Presentamos nuestro controlador de ventanita
+        windowController.showWindow(nil)
+    }
+    
+    func openEditBookWindow(book: Book) {
+        // Creamos el modelo para la nueva pantalla
+        let newBookModel = NewBookFormModel(
+            book: book,
+            onAddBook: { newBook in
+                self.model.newBookWasCreated(book: newBook)
+            }
+        )
         
         // Instaciamos la pantallita que ya creamos con el XIB
         let newBookViewController = NewBookFormController(

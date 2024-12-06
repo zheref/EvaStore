@@ -30,6 +30,11 @@ extension MainModel {
         windowOpenerDelegate?.openNewBookWindow()
     }
     
+    func userWantsToEditBook(position: Int) {
+        let book = books[position]
+        windowOpenerDelegate?.openEditBookWindow(book: book)
+    }
+    
     // MARK: - System Events
     
     func viewIsReadyForData() {

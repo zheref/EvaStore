@@ -39,11 +39,12 @@ class NewBookFormController: NSViewController {
     
     @IBOutlet weak var cancelButton: NSButton!
     
+    // Label
+    @IBOutlet weak var headingLabel: NSTextField!
+    
     // Campos
     @IBOutlet weak var titleTextField: NSTextField!
-    
     @IBOutlet weak var authorTextField: NSTextField!
-    
     @IBOutlet weak var coverImageURLTextField: NSTextField!
     
     // Initializer
@@ -65,6 +66,8 @@ class NewBookFormController: NSViewController {
         titleTextField.delegate = self
         authorTextField.delegate = self
         coverImageURLTextField.delegate = self
+        
+        
     }
     
     override func viewDidAppear() {
@@ -78,7 +81,13 @@ class NewBookFormController: NSViewController {
         cancelButton.change(color: .red)
         
         model.windowCloser = self
+        
+        if let book = model.book {
+            apply(book: book)
+        }
     }
+    
+    // MARK: IBActions
     
     @IBAction func userDidClickCancelButton(_ sender: NSButton) {
         model.userWantsToCancelBookCreation()
@@ -96,6 +105,15 @@ class NewBookFormController: NSViewController {
                 authorName: authorTextField.stringValue,
                 coverURLString: coverImageURLTextField.stringValue
             )
+    }
+    
+    private func apply(book: Book) {
+        view.window?.title = "Edit Book: \(book.title)"
+        headingLabel.stringValue = "Edit Book"
+        titleTextField.stringValue = book.title
+        authorTextField.stringValue = book.author.name
+        coverImageURLTextField.stringValue
+            = book.coverPicture?.absoluteString ?? ""
     }
     
     /// Encuentra el primer campo al cual le falte informacion en

@@ -14,7 +14,7 @@ struct MainModel {
     
     // Weak solo funciona con tipos referencia
     weak var collectionUpdaterDelegate: CollectionUpdater?
-    weak var windowOpenerDelegate: NewBookWindowOpener? = nil
+    weak var windowOpenerDelegate: BookWindowOpener? = nil
     
     // MARK: - Stored Propeties
     

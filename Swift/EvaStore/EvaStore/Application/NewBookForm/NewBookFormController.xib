@@ -10,6 +10,7 @@
                 <outlet property="authorTextField" destination="tRc-R0-NTo" id="OCk-5E-8CJ"/>
                 <outlet property="cancelButton" destination="gqo-bH-Evg" id="bnS-R5-rdX"/>
                 <outlet property="coverImageURLTextField" destination="xUu-P8-7gH" id="fwK-fs-TUp"/>
+                <outlet property="headingLabel" destination="7pk-si-zSY" id="68y-ft-OpI"/>
                 <outlet property="titleTextField" destination="EbO-xM-gUE" id="tXq-EP-gWq"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>

@@ -8,7 +8,7 @@
 import XCTest
 @testable import EvaStore
 
-class FakeWindowOpener: NewBookWindowOpener {
+class FakeWindowOpener: BookWindowOpener {
     var windowOpenedSpy = false
     
     func openNewBookWindow() {
