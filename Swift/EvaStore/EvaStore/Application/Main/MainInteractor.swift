@@ -57,6 +57,7 @@ extension MainModel {
             $0.id == book.id
         })
         
+        // Precondicionales
         guard let index else {
             // TODO: Display error on UI
             return
@@ -64,6 +65,21 @@ extension MainModel {
         
         books[index] = book
         collectionUpdaterDelegate?.reloadCollection()
+    }
+    
+    //
+    mutating func bookWasEdited2(book: Book) {
+        let index = books.firstIndex(where: {
+            $0.id == book.id
+        })
+        
+        if let index {
+            books[index] = book
+            collectionUpdaterDelegate?.reloadCollection()
+        }
+        
+        // TODO: Display error on UI
+        // No es necesario retornar
     }
     
 }

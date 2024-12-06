@@ -32,6 +32,13 @@ struct NewBookFormModel {
         coverURLString: String
     ) {
         if var book = book {
+            let somethingChanged = book.title != title || book.author.name != authorName || book.coverPicture?.absoluteString != coverURLString
+            
+            guard somethingChanged else {
+                windowCloser?.close()
+                return
+            }
+            
             book.title = title
             book.author.name = authorName
             book.coverPicture = URL(string: coverURLString)
