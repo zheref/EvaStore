@@ -28,6 +28,22 @@ extension NSView {
     
 }
 
+class EvaImageView: NSImageView {
+    
+    override var image: NSImage? {
+        get {
+            return layer?.contents as? NSImage
+        }
+        set {
+            layer = .init()
+            layer?.contentsGravity = .resizeAspectFill
+            layer?.contents = newValue
+            wantsLayer = true
+        }
+    }
+    
+}
+
 class BookCell: NSCollectionViewItem {
     
     // MARK: - Stored Properties
@@ -39,7 +55,7 @@ class BookCell: NSCollectionViewItem {
     
     // MARK: Outlets
     
-    @IBOutlet weak var coverImageView: NSImageView!
+    @IBOutlet weak var coverImageView: EvaImageView!
     
     @IBOutlet weak var titleLabel: NSTextField!
     
