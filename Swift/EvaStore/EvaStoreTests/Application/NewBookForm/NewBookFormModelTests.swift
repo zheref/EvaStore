@@ -33,7 +33,7 @@ final class NewBookFormModelTests: XCTestCase {
         newBookFormModel.userWantsToCancelBookCreation()
         
         // Then (expectativas)
-        XCTAssertTrue(mockWindowCloser.didCloseCalledSpy)
+        XCTAssertTrue(mockWindowCloserDelegate.didCloseCalledSpy)
     }
     
     // Caso 1: Creacion
@@ -54,6 +54,8 @@ final class NewBookFormModelTests: XCTestCase {
         sut.onAddBook = { newBook in
             newBookToAdd = newBook
         }
+        let windowCloserDelegate = MockedWindowCloser()
+        sut.windowCloserDelegate = windowCloserDelegate
         
         // Cuando -----------------------------------------
         sut.userWantsToConfirmBook(
@@ -72,6 +74,8 @@ final class NewBookFormModelTests: XCTestCase {
             newBookToAdd?.coverPicture?.absoluteString,
             coverURLString
         )
+        // 2. Emitimos orden para cerrar la ventana de creacion.
+        XCTAssertTrue(windowCloserDelegate.didCloseCalledSpy)
         
     }
 
