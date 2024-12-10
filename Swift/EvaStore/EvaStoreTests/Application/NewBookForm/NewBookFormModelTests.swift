@@ -26,8 +26,8 @@ final class NewBookFormModelTests: XCTestCase {
         // Sujeto (Real, proveniente de la aplicacion misma)
         var newBookFormModel = NewBookFormModel()
         // Mocks (mockeamos tantas dependencias del sujeto como necesitemos)
-        let mockWindowCloser = MockedWindowCloser()
-        newBookFormModel.windowCloserDelegate = mockWindowCloser
+        let mockWindowCloserDelegate = MockedWindowCloser()
+        newBookFormModel.windowCloserDelegate = mockWindowCloserDelegate
         
         // When
         newBookFormModel.userWantsToCancelBookCreation()
@@ -36,7 +36,42 @@ final class NewBookFormModelTests: XCTestCase {
         XCTAssertTrue(mockWindowCloser.didCloseCalledSpy)
     }
     
-    func testUserWantsToConfirmBookCreation() {
+    // Caso 1: Creacion
+    func testUserWantsToConfirmBook_Creation() {
+        // Dado (preparamos) -----------------------------------------
+        
+        // Sujeto (lo que estamos auditando)
+        
+        var sut = NewBookFormModel()
+        
+        // Mocks (conveniencia)
+        
+        let title = "Harry Potter: The Prisoner of Azkaban"
+        let authorName = "J.K. Rowling"
+        let coverURLString = "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781408855676.jpg"
+        
+        var newBookToAdd: Book? = nil
+        sut.onAddBook = { newBook in
+            newBookToAdd = newBook
+        }
+        
+        // Cuando -----------------------------------------
+        sut.userWantsToConfirmBook(
+            title: title,
+            authorName: authorName,
+            coverURLString: coverURLString
+        )
+        
+        // Entonces -----------------------------------------
+        
+        // 1. Reportamos que queremos agregar un nuevo libro ya creado
+        XCTAssertNotNil(newBookToAdd)
+        XCTAssertEqual(newBookToAdd?.title, title)
+        XCTAssertEqual(newBookToAdd?.author.name, authorName)
+        XCTAssertEqual(
+            newBookToAdd?.coverPicture?.absoluteString,
+            coverURLString
+        )
         
     }
 

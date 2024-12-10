@@ -29,8 +29,19 @@ struct NewBookFormModel {
         windowCloserDelegate?.close()
     }
     
-    ///
-    func userWantsToConfirmBookCreation(
+    /// Dados, un titulo de libro, un nombre de autor y una URL de
+    /// una imagen para la portada.
+    /// Si, estamos editando un libro:
+    /// 1. Reportamos que hemos editado un libro a quien corresponda
+    /// 2. Emitimos orden para cerrar la ventana de edicion.
+    /// De lo contrario (creacion de nuevo libro):
+    /// 1. Reportamos que queremos agregar un nuevo libro ya creado
+    /// 2. Emitimos orden para cerrar la ventana de creacion.
+    /// - Parameters:
+    ///     - title: El titulo del libro a crear o actualizado
+    ///     - authorName: El nombre del autor del libro a crear o actualizado
+    ///     - coverURLString: String con la URL de la imagen del libro a crear o actualizado.
+    func userWantsToConfirmBook(
         title: String,
         authorName: String,
         coverURLString: String

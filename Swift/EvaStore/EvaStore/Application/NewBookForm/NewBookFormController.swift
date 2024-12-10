@@ -100,7 +100,7 @@ class NewBookFormController: NSViewController {
         }
         
         model
-            .userWantsToConfirmBookCreation(
+            .userWantsToConfirmBook(
                 title: titleTextField.stringValue,
                 authorName: authorTextField.stringValue,
                 coverURLString: coverImageURLTextField.stringValue
