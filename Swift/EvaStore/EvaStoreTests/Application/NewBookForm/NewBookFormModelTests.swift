@@ -50,9 +50,9 @@ final class NewBookFormModelTests: XCTestCase {
         let authorName = "J.K. Rowling"
         let coverURLString = "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781408855676.jpg"
         
-        var newBookToAdd: Book? = nil
+        var newBookToAddSpy: Book? = nil
         sut.onAddBook = { newBook in
-            newBookToAdd = newBook
+            newBookToAddSpy = newBook
         }
         let windowCloserDelegate = MockedWindowCloser()
         sut.windowCloserDelegate = windowCloserDelegate
@@ -67,11 +67,11 @@ final class NewBookFormModelTests: XCTestCase {
         // Entonces -----------------------------------------
         
         // 1. Reportamos que queremos agregar un nuevo libro ya creado
-        XCTAssertNotNil(newBookToAdd)
-        XCTAssertEqual(newBookToAdd?.title, title)
-        XCTAssertEqual(newBookToAdd?.author.name, authorName)
+        XCTAssertNotNil(newBookToAddSpy)
+        XCTAssertEqual(newBookToAddSpy?.title, title)
+        XCTAssertEqual(newBookToAddSpy?.author.name, authorName)
         XCTAssertEqual(
-            newBookToAdd?.coverPicture?.absoluteString,
+            newBookToAddSpy?.coverPicture?.absoluteString,
             coverURLString
         )
         // 2. Emitimos orden para cerrar la ventana de creacion.
