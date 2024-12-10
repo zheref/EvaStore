@@ -9,10 +9,15 @@ import XCTest
 @testable import EvaStore
 
 class FakeWindowOpener: BookWindowOpener {
-    var windowOpenedSpy = false
+    var createWindowOpenedSpy = false
+    var editWIndowOpenedSpy = false
     
     func openNewBookWindow() {
-        windowOpenedSpy = true
+        createWindowOpenedSpy = true
+    }
+    
+    func openEditBookWindow(book: EvaStore.Book) {
+        createWindowOpenedSpy = true
     }
 }
 
@@ -143,13 +148,13 @@ final class MainModelTests: XCTestCase {
         // Lo preparamos para que pueda hacer su trabajo
         let windowOpenerDelegate = FakeWindowOpener()
         sujetoDePrueba.windowOpenerDelegate = windowOpenerDelegate
-        XCTAssertFalse(windowOpenerDelegate.windowOpenedSpy)
+        XCTAssertFalse(windowOpenerDelegate.createWindowOpenedSpy)
         
         // Cuando
         sujetoDePrueba.userWantsToCreateNewBook()
         
         // Entonces
-        XCTAssertTrue(windowOpenerDelegate.windowOpenedSpy)
+        XCTAssertTrue(windowOpenerDelegate.createWindowOpenedSpy)
     }
     
     // Let's test System Events
