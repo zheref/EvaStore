@@ -80,7 +80,7 @@ class NewBookFormController: NSViewController {
         // TODO: Research how to change button title color
         cancelButton.change(color: .red)
         
-        model.windowCloser = self
+        model.windowCloserDelegate = self
         
         if let book = model.book {
             apply(book: book)

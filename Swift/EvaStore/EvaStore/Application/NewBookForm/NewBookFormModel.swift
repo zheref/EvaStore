@@ -14,7 +14,7 @@ struct NewBookFormModel {
     var book: Book?
     
     // Delegate
-    weak var windowCloser: WindowCloser?
+    weak var windowCloserDelegate: WindowCloser?
     
     // Event
     var onAddBook: (Book) -> Void = { book in print(book) }
@@ -22,8 +22,11 @@ struct NewBookFormModel {
     
     // Interactor
     
+    /// Ordena al responsable de las ventanas
+    /// que se cierre la ventana actual al
+    /// usuario querer cancelar la operacion de creacion/modificacion.
     func userWantsToCancelBookCreation() {
-        windowCloser?.close()
+        windowCloserDelegate?.close()
     }
     
     func userWantsToConfirmBookCreation(
@@ -35,7 +38,7 @@ struct NewBookFormModel {
             let somethingChanged = book.title != title || book.author.name != authorName || book.coverPicture?.absoluteString != coverURLString
             
             if !somethingChanged {
-                windowCloser?.close()
+                windowCloserDelegate?.close()
                 return
             }
             
@@ -47,7 +50,7 @@ struct NewBookFormModel {
             onEditBook(book)
             
             // Then:
-            windowCloser?.close()
+            windowCloserDelegate?.close()
         } else {
             // We create the book
             let book = Book(
@@ -67,7 +70,7 @@ struct NewBookFormModel {
             onAddBook(book)
             
             // Then:
-            windowCloser?.close()
+            windowCloserDelegate?.close()
         }
     }
     
