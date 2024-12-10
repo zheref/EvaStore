@@ -79,4 +79,50 @@ final class NewBookFormModelTests: XCTestCase {
         
     }
 
+    // Caso 2: edicion
+    func testUserWantsToConfirmBook_Edit() {
+        // Dado (preparamos) -----------------------------------------
+        
+        // Sujeto (lo que estamos auditando)
+        
+        var sut = NewBookFormModel()
+        var otherModel = MainModel()
+        
+        // Mocks (conveniencia)
+        
+        let title = "Harry Potter: The Prisoner of Azkaban"
+        let authorName = "J.K. Rowling"
+        let coverURLString = "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781408855676.jpg"
+        
+        let bookEditing = Book.narnia
+        sut.book = bookEditing
+        
+        var newBookToEditSpy: Book? = nil
+        sut.onEditBook = { editedBook in
+            newBookToEditSpy = editedBook
+        }
+        let windowCloserDelegate = MockedWindowCloser()
+        sut.windowCloserDelegate = windowCloserDelegate
+        
+        // Cuando -----------------------------------------
+        sut.userWantsToConfirmBook(
+            title: title,
+            authorName: authorName,
+            coverURLString: coverURLString
+        )
+        
+        // Entonces -----------------------------------------
+        
+        // 1. Reportamos que queremos agregar un nuevo libro ya creado
+        XCTAssertNotNil(newBookToEditSpy)
+        XCTAssertEqual(newBookToEditSpy?.title, title)
+        XCTAssertEqual(newBookToEditSpy?.author.name, authorName)
+        XCTAssertEqual(
+            newBookToEditSpy?.coverPicture?.absoluteString,
+            coverURLString
+        )
+        // 2. Emitimos orden para cerrar la ventana de creacion.
+        XCTAssertTrue(windowCloserDelegate.didCloseCalledSpy)
+        
+    }
 }
