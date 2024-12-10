@@ -8,7 +8,7 @@
 import XCTest
 @testable import EvaStore
 
-class FakeWindowCloser: WindowCloser {
+class MockedWindowCloser: WindowCloser {
     var didCloseCalledSpy: Bool = false
     
     func close() {
@@ -20,16 +20,24 @@ final class NewBookFormModelTests: XCTestCase {
 
     // Spies with delegation
     func testUserWantsToCancelBookCreation() {
-        // Given
+        // Mock: Creado convenientemente exclusivamente para esta prueba
+        
+        // Given (Dado)
+        // Sujeto (Real, proveniente de la aplicacion misma)
         var newBookFormModel = NewBookFormModel()
-        let fakeWindowCloser = FakeWindowCloser()
-        newBookFormModel.windowCloserDelegate = fakeWindowCloser
+        // Mocks (mockeamos tantas dependencias del sujeto como necesitemos)
+        let mockWindowCloser = MockedWindowCloser()
+        newBookFormModel.windowCloserDelegate = mockWindowCloser
         
         // When
         newBookFormModel.userWantsToCancelBookCreation()
         
-        // Then
-        XCTAssertTrue(fakeWindowCloser.didCloseCalledSpy)
+        // Then (expectativas)
+        XCTAssertTrue(mockWindowCloser.didCloseCalledSpy)
+    }
+    
+    func testUserWantsToConfirmBookCreation() {
+        
     }
 
 }

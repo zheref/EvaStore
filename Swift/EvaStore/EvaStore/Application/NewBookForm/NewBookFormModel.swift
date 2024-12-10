@@ -29,6 +29,7 @@ struct NewBookFormModel {
         windowCloserDelegate?.close()
     }
     
+    ///
     func userWantsToConfirmBookCreation(
         title: String,
         authorName: String,
